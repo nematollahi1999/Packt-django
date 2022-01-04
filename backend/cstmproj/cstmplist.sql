@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS product_details (
   pname varchar(255) DEFAULT NULL,
   sellername varchar(50) DEFAULT NULL,
   gender varchar(10) DEFAULT NULL,
-  situation varchar(10) DEFAULT NULL,
+  situation varchar(50) DEFAULT NULL,
 );
 
 --
