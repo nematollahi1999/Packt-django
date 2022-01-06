@@ -13,7 +13,7 @@ BEGIN TRANSACTION;
 -- Table: Products_list
 
 CREATE TABLE IF NOT EXISTS product_details (
-  id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  id integer NOT NULL PRIMARY KEY AUTO_INCREMENT,
   pname varchar(255) DEFAULT NULL,
   sellername varchar(50) DEFAULT NULL,
   gender varchar(10) DEFAULT NULL,
