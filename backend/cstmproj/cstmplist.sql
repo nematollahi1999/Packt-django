@@ -11,14 +11,12 @@ PRAGMA foreign_key = off;
 BEGIN TRANSACTION;
 
 -- Table: Products_list
-
-CREATE TABLE IF NOT EXISTS product_details (
-  id integer NOT NULL PRIMARY KEY AUTO_INCREMENT,
+DROP TABLE IF EXISTS product_details;
+CREATE TABLE product_details (id integer NOT NULL PRIMARY KEY AUTOINCREMENT,
   pname varchar(255) DEFAULT NULL,
   sellername varchar(50) DEFAULT NULL,
   gender varchar(10) DEFAULT NULL,
-  situation varchar(50) DEFAULT NULL,
-);
+  situation varchar(50) DEFAULT NULL);
 
 --
 -- Dumping data for table `product_details`
