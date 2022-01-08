@@ -42,9 +42,9 @@ def product_list(request):
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
 
 @csrf_exempt
-def product_detail(request, primary_key):
+def product_detail(request, pk):
     try:
-        product = Plist.objects.get(pk=primary_key)
+        product = Plist.objects.get(pk=pk)
     except Plist.DoesNotExist:
         return HttpResponse(status=status.HTTP_404_NOT_FOUND)
 
