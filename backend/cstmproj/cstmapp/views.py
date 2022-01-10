@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from cstmapp.models import Plist
+from cstmapp.models import ProductDetails
 from cstmapp.serializers import UserSerializer, PlistSerializer
 from rest_framework import viewsets, status
 from rest_framework.parsers import JSONParser
@@ -23,7 +23,7 @@ class UserViewSet(viewsets.ModelViewSet):
 def product_list(request):
     #Get all
     if request.method == 'GET':
-        products = Plist.objects.all()
+        products = ProductDetails.objects.all()
         products_serializer = PlistSerializer(products, many=True)
         return JsonResponse(products_serializer.data, safe=False)
 
@@ -38,14 +38,14 @@ def product_list(request):
 
     #Delete all
     if request.method == 'DELETE':
-        Plist.objects.all().delete()
+        ProductDetails.objects.all().delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
 
 @csrf_exempt
 def product_detail(request, pk):
     try:
-        product = Plist.objects.get(pk=pk)
-    except Plist.DoesNotExist:
+        product = ProductDetails.objects.get(pk=pk)
+    except ProductDetails.DoesNotExist:
         return HttpResponse(status=status.HTTP_404_NOT_FOUND)
 
     #Retreive one

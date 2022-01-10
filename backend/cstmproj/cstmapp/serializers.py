@@ -1,8 +1,7 @@
 from django.contrib.auth.models import User
 from django.db.models import fields
-from django.contrib.auth.models import User
 from rest_framework import serializers
-from cstmapp.models import Plist
+from cstmapp.models import ProductDetails
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -11,9 +10,11 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 class PlistSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Plist
+        model = ProductDetails
         fields = (  'pname',
                     'sellername',
                     'gender',
                     'situation'
         )
+        #managed = False
+        #db_table = 'product_details'
